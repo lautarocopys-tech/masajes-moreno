@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masajes en Moreno | Masajes Descontracturantes y Relajantes</title>
+    <meta name="description" content="Centro premium de masajes en Moreno, Zona Oeste. Masajes descontracturantes reales y relajantes. Clínica de la relajación con aromaterapia, sin ruidos y atención personalizada.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Variables y Reseteo */
+        :root {
+            --primary: #2C5F44; /* Verde Spa oscuro */
+            --primary-light: #4A8B66;
+            --secondary: #D4AF37; /* Dorado sutil */
+            --dark: #1A1C1A;
+            --light: #F4F7F5;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .logo, .badge {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Utilidades */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Botones */
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--dark);
+        }
+
+        /* Navbar */
+        .navbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(26, 28, 26, 0.7), rgba(44, 95, 68, 0.8));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .badge {
+            background-color: var(--secondary);
+            color: var(--dark);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .hero-main-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p:not(.hero-main-title) {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Diferencial (Glassmorphism) */
+        .section-dark {
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .section-dark .section-title h2 {
+            color: white;
+        }
+        
+        .section-dark .section-title p {
+            color: #aaa;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card .icon {
+            color: var(--secondary);
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1.5rem;
+        }
+
+        .glass-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .glass-card p {
+            color: #ccc;
+            font-size: 0.95rem;
+        }
+
+        /* Servicios */
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border: 1px solid #eaeaea;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(44, 95, 68, 0.1);
+        }
+
+        .service-content {
+            padding: 2.5rem 2rem;
+        }
+
+        .service-content h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-subtitle {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .service-content > p:not(.service-subtitle) {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            min-height: 80px;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .service-features li i {
+            color: var(--primary);
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Image Showcase */
+        .image-showcase {
+            background-color: white;
+        }
+
+        .showcase-flex {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .showcase-text {
+            flex: 1;
+        }
+
+        .showcase-text h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .showcase-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .showcase-img {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .showcase-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .mt-2 { margin-top: 1rem; }
+        .mt-3 { margin-top: 2rem; }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer p {
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366; /* Verde WhatsApp */
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-wsp {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .floating-wsp:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-main-title {
+                font-size: 2.8rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+            }
+            .showcase-flex {
+                flex-direction: column-reverse;
+                gap: 2rem;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            .navbar {
+                justify-content: center;
+            }
+            .navbar .btn-primary {
+                display: none; /* Ocultar en móvil para dar prioridad al hero */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <nav class="navbar">
+            <div class="logo">Oasis Moreno</div>
+            <a href="#contacto" class="btn-primary" style="border-color: white;">Agendar Turno</a>
+        </nav>
+        <div class="hero-content">
+            <h1 class="badge">Masajes en Moreno</h1>
+            <p class="hero-main-title">Masajes de verdad para recuperarte</p>
+            <p>El alivio real que tu cuerpo necesita. Nos olvidamos de las "caricias" para desarmar tus nudos con la presión exacta. Un oasis de paz a minutos de tu casa.</p>
+            <div class="hero-buttons">
+                <a href="#servicios" class="btn-primary">Ver Tratamientos</a>
+                <a href="#diferencial" class="btn-secondary">Conocé la diferencia</a>
+            </div>
+        </div>
+        <div class="hero-image-overlay"></div>
+    </header>
+
+    <section id="diferencial" class="section-dark glass-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Cansado de pagar por masajes que no sirven?</h2>
+                <p>Sabemos exactamente por lo que pasaste en otros lugares. Acá lo resolvemos.</p>
+            </div>
+            <div class="grid-3">
+                <div class="card glass-card">
+                    <i data-lucide="frown" class="icon"></i>
+                    <h3>"Me hacían caricias"</h3>
+                    <p>Acá aplicamos <strong>Garantía de Presión</strong>. Vos elegís si querés un masaje suave o un tejido profundo real que descontracture.</p>
+                </div>
+                <div class="card glass-card">
+                    <i data-lucide="volume-x" class="icon"></i>
+                    <h3>"Había ruido y hacía frío"</h3>
+                    <p>Gabinete acústicamente aislado, música binaural a 432Hz y camilla térmica. Un micro-spa sin distracciones.</p>
+                </div>
+                <div class="card glass-card">
+                    <i data-lucide="shield-check" class="icon"></i>
+                    <h3>"Me daba desconfianza"</h3>
+                    <p>Sábanas impecables, aromaterapia premium y un local seguro y céntrico. Profesionales de verdad, sin sorpresas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="section-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Tratamientos</h2>
+                <p>Soluciones específicas para dolores reales y estrés acumulado.</p>
+            </div>
+            <div class="grid-3">
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>El Antídoto al Sarmiento</h3>
+                        <p class="service-subtitle">Masaje Descontracturante Profundo</p>
+                        <p>Ideal para el viajante. Si viajás todos los días y tenés la espalda destruida, este masaje repara las cervicales y la postura. Turnos post-horario laboral.</p>
+                        <ul class="service-features">
+                            <li><i data-lucide="check"></i> Presión fuerte a medida</li>
+                            <li><i data-lucide="check"></i> Entrevista previa de 5 min</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>El Oasis en el Oeste</h3>
+                        <p class="service-subtitle">Experiencia Relajante Integral</p>
+                        <p>60 minutos donde el estrés queda afuera. Ideal para madres y profesionales que necesitan pausar la mente.</p>
+                        <ul class="service-features">
+                            <li><i data-lucide="check"></i> Piedras y Aromaterapia</li>
+                            <li><i data-lucide="check"></i> Ambiente silencioso y seguro</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>Rendimiento Local</h3>
+                        <p class="service-subtitle">Descarga Deportiva Real</p>
+                        <p>Esa molestia te avisa antes de romperse. Ideal para llegar entero al torneo del finde o recuperarte del gimnasio pesado. Prevení lesiones.</p>
+                        <ul class="service-features">
+                            <li><i data-lucide="check"></i> Ventosas (Cupping)</li>
+                            <li><i data-lucide="check"></i> Elongación asistida</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="image-showcase">
+        <div class="container">
+            <div class="showcase-flex">
+                <div class="showcase-text">
+                    <h2>Un nivel de Spa en el corazón de Moreno</h2>
+                    <p>No tenés que viajar a Capital para recibir una atención de primer nivel. Nuestro espacio está diseñado bajo un protocolo de "Clínica de la Relajación".</p>
+                    <a href="#contacto" class="btn-primary mt-2">Reservar mi espacio</a>
+                </div>
+                <div class="showcase-img">
+                    <!-- Cambié la ruta local por una imagen de stock temporal para que veas el diseño funcional -->
+                    <img src="https://images.unsplash.com/photo-1544161514-469b813b19b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aromaterapia y masajes relajantes">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h2>Agenda tu Turno</h2>
+                <p>Escribinos por WhatsApp y coordinamos tu visita de forma rápida y sin vueltas.</p>
+                <a href="https://wa.me/5491165692892" target="_blank" class="btn-whatsapp">
+                    <i data-lucide="message-circle"></i> Contactar por WhatsApp
+                </a>
+                <p class="mt-3">📍 Ubicación céntrica y segura en Moreno, Buenos Aires.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante de WhatsApp (Agregado para mejorar conversión) -->
+    <a href="https://wa.me/5491165692892" class="floating-wsp" target="_blank" aria-label="Chat en WhatsApp">
+        <i data-lucide="message-circle"></i>
+    </a>
+
+    <script>
+        // Inicializar los iconos de Lucide
+        lucide.createIcons();
+    </script>
+</body>
+</html>
